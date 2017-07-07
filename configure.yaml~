@@ -1,0 +1,11 @@
+%YAML:1.0
+
+
+fx:   2759.48
+fy:   2764.16
+cx:   1520.69
+cy:   1006.81
+
+
+save_image: 0
+use_sparse_match: 0
