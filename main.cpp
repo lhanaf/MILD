@@ -252,7 +252,11 @@ int main(int argc, char *argv[])
         cout << "please check your input!" << endl;
         cout << "standard input: ./mild imageList.txt configure.yaml" << endl;
         cout << "imageList.txt: indicats the path of each input RGB image per line" << endl;
+<<<<<<< HEAD
         cout << "settings.yaml: indicats the parameters used in loop closure detection" << endl;
+=======
+        cout << "configure.yaml: indicats the parameters used in loop closure detection" << endl;
+>>>>>>> ddd32b4df956b8c222fa2ee4c4e926ca5397f1ec
         return 0;
     }
 
