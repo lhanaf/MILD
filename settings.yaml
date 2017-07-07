@@ -1,0 +1,8 @@
+%YAML:1.0
+
+
+probability_threshold: 0.5    # loop closure probability threshold
+non_loop_closure_threshold: 4 # the average salient score for a loop closure candidate
+min_shared_score_threshold: 4 # the minimum shared score required for a loop closure candidate
+min_distance: 60              # neighbor frames cannot be counted as loop closures
+maximum_feature_num: 800   # maximum extracted features per frame
