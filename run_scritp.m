@@ -1,14 +1,13 @@
 
-folder = '..//output//imageList_NewCollege//';
-fp = fopen([folder 'lcd_shared_probability.bin'],'rb');
+
+%folder = 'build//output//imageList_NewCollege//';
+%fp = fopen([folder 'lcd_shared_probability.bin'],'rb');
+fp = fopen(probability_file,'rb');
 ori_p = fread(fp,'float');
 fclose(fp);
-fp = fopen([folder 'lcd_shared_flag.bin'],'rb');
+%fp = fopen([folder 'lcd_shared_flag.bin'],'rb');
+fp = fopen(flag_file,'rb');
 ori_f = fread(fp,'float');
-fclose(fp);
-
-fp = fopen([folder 'lcd_shared_score_mild.bin'],'rb');
-ori_input = fread(fp,'float');
 fclose(fp);
 
 try 
@@ -19,14 +18,12 @@ catch
 end
 
 
-frame_num = floor(sqrt(length(ori_input)));
-shared_score = zeros(frame_num,frame_num);
+frame_num = floor(sqrt(length(ori_f)));
 input_probability = zeros(frame_num,frame_num);
 input_flag = zeros(frame_num,frame_num);
 visited_probability = zeros(frame_num,frame_num);
 visited_flag = zeros(frame_num,frame_num);
 for i = 1:frame_num
-    shared_score(i,:) = ori_input(i*frame_num-frame_num+1:i*frame_num);
     input_probability(i,:) = ori_p(i*frame_num-frame_num+1:i*frame_num);
     input_flag(i,:) = ori_f(i*frame_num-frame_num+1:i*frame_num);
 end
@@ -55,4 +52,5 @@ if(1)
     figure;imagesc(input_probability);title('input probability');
     figure;imagesc(input_flag);title('input flag');
 
+end
 end

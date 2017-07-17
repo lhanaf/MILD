@@ -85,7 +85,7 @@ void test_mild(string folder,
     int dir_err;
 
     if(!DirectoryExists("output"))
-    {    dir_err = mkdir(output_folder.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+    {    dir_err = mkdir("output", S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
         if (-1 == dir_err)
         {
             printf("Error creating directory !  %s\n","output");
@@ -233,7 +233,6 @@ void test_mild(string folder,
     fwrite(p_visit_flag, sizeof(float), runFrameNum * runFrameNum, fp);
     fclose(fp);
 
-    system("pause");
     return;
 }
 
@@ -262,6 +261,5 @@ int main(int argc, char *argv[])
     int min_distance = fSettings["min_distance"];
     int maximum_feature_num = fSettings["maximum_feature_num"];
     test_mild(data_folder,maximum_feature_num,probability_threshold,non_loop_closure_threshold,min_shared_score_threshold,min_distance);
-    system("pause");
     return 0;
 }

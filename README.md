@@ -5,11 +5,13 @@ Project for MILD
 
 Ubuntu 14.04
 
+cmake 3.2.0
+
 OpenCV 3.1 http://xfloyd.net/blog/?p=987
 
 eigen3
 
-
+octave (optional, only used for evaluation)
 
 # Installation ################################################################
 $ mkdir build
@@ -26,6 +28,8 @@ $ make
 
 
 ./mild ../imagelist.txt ../settings.yaml
+
+input:
 
 imageList.txt: indicats the path of each input RGB image per line
 settings.yaml: indicats the parameters used in loop closure detection

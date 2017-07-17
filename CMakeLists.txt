@@ -21,8 +21,9 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall")
 
 find_package(OpenCV 3 REQUIRED)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
-find_package(Eigen3 REQUIRED)
-include_directories(${EIGEN3_INCLUDE_DIR})
+find_package( PkgConfig )
+pkg_check_modules( EIGEN3 REQUIRED eigen3 )
+include_directories( ${EIGEN3_INCLUDE_DIRS} )
 set(CMAKE_CXX_FLAGS "-msse4.2") 
 
 add_executable(MILD ${SOURCE_FILES})
