@@ -27,7 +27,7 @@ $ make
 # Usage ##############################################################
 
 
-./mild ../imagelist.txt ../settings.yaml
+./mild imagelist.txt settings.yaml
 
 input:
 
@@ -37,3 +37,8 @@ settings.yaml: indicats the parameters used in loop closure detection
 output:
 
 output/imagelist/lcd_shared_flag.bin: detected loop closure are set as 1. To be used in the run_scritp.m to check the accuracy of the detected loop closure.
+output/imagelist/lcd_shared_score_mild.bin: the image similarity calculated using MILD.
+output/imagelist/relocalization_time_per_frame.bin: lcd time of each frame.
+
+evluation: (based on MATLAB/OCTAVE)
+evaluation('build/output/imageList_NewCollege/lcd_shared_flag.bin','build/output/imageList_NewCollege/lcd_shared_probability.bin','data/truthNewCollege.mat');
