@@ -165,12 +165,15 @@ void test_mild(string folder,
     previous_visit_probability << 0.1;
     std::vector<Eigen::VectorXf> privious_visit_flag;
     MILD::BayesianFilter spatial_filter(probability_threshold,non_loop_closure_threshold,min_shared_score_threshold, min_distance);
+
+    clock_t start_lcd, end_lcd;
     for (int k = 0; k < frame_list.size(); k++)
     {
         if (k % 100 == 0)
         {
             cout << "loop closure detection: " << k << endl;
         }
+        start_lcd = clock();
         std::vector<float > similarity_score;
         similarity_score.clear();
         lcd.insert_and_query_database(frame_list[k].descriptor, similarity_score);
@@ -186,6 +189,7 @@ void test_mild(string folder,
         {
             p_visit_probability[i + k * runFrameNum] = previous_visit_probability[i];
         }
+#if 0
         if (privious_visit_flag.size() >= 4)
         {
             for (int i = 0; i < privious_visit_flag[privious_visit_flag.size() - 4].size(); i++)
@@ -193,6 +197,17 @@ void test_mild(string folder,
                 p_visit_flag[i + (k - 3) * runFrameNum] = privious_visit_flag[privious_visit_flag.size() - 4][i];
             }
         }
+#endif
+        if (privious_visit_flag.size() >= 1)
+        {
+            for (int i = 0; i < privious_visit_flag[privious_visit_flag.size() - 1].size(); i++)
+            {
+                p_visit_flag[i + k * runFrameNum] = privious_visit_flag[privious_visit_flag.size() - 1][i];
+            }
+        }
+        end_lcd = clock();
+        double time_lcd_per_iteration =  (double)(end_lcd - start_lcd) / CLOCKS_PER_SEC;
+        time_cost_per_frame[k] = time_lcd_per_iteration;
     }
 
     if (privious_visit_flag.size() >= 4)
@@ -231,6 +246,9 @@ void test_mild(string folder,
     fclose(fp);
     fp = fopen(visit_flag_file.c_str(), "wb+");
     fwrite(p_visit_flag, sizeof(float), runFrameNum * runFrameNum, fp);
+    fclose(fp);
+    fp = fopen(relocalization_time_per_frame_file.c_str(), "wb+");
+    fwrite(time_cost_per_frame, sizeof(float), runFrameNum, fp);
     fclose(fp);
 
     return;
