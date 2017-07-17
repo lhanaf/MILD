@@ -41,4 +41,5 @@ output/imagelist/lcd_shared_score_mild.bin: the image similarity calculated usin
 output/imagelist/relocalization_time_per_frame.bin: lcd time of each frame.
 
 evluation: (based on MATLAB/OCTAVE)
+
 evaluation('build/output/imageList_NewCollege/lcd_shared_flag.bin','build/output/imageList_NewCollege/lcd_shared_probability.bin','data/truthNewCollege.mat');
