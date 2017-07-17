@@ -4,7 +4,9 @@ Project for MILD
 # Prerequisites  ################################################################
 
 Ubuntu 14.04
-OpenCV 3.0 or above http://xfloyd.net/blog/?p=987
+
+OpenCV 3.1 http://xfloyd.net/blog/?p=987
+
 eigen3
 
 
