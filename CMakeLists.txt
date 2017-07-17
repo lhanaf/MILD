@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project(sfm)
+project(MILD)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -25,9 +25,9 @@ find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 set(CMAKE_CXX_FLAGS "-msse4.2") 
 
-add_executable(sfm ${SOURCE_FILES})
+add_executable(MILD ${SOURCE_FILES})
 
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-target_link_libraries(sfm ${OpenCV_LIBS} )
+target_link_libraries(MILD ${OpenCV_LIBS} )
