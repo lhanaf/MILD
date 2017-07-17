@@ -1,8 +1,15 @@
 # MILD
 Project for MILD
 
+# Prerequisites  ################################################################
 
-To compile the code:
+Ubuntu 14.04
+OpenCV 3.0 or above
+eigen3
+
+
+
+# Installation ################################################################
 $ mkdir build
 
 $ cd build
@@ -13,7 +20,8 @@ $ make
 
 
 
-To run the code:
+# Usage ##############################################################
+
 
 ./mild ../imagelist.txt ../settings.yaml
 
