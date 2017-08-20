@@ -1,5 +1,11 @@
 # MILD
-Project for MILD
+Project for MILD: An efficient loop closure detection libary based on binary features.
+
+Related papers:
+
+1.  Multi-Index Hashing for Loop closure Detection. International Conference on Multimedia Expo, 2017. Best Student Paper Awards. 
+
+2.  Beyond SIFT Using Binary features in Loop Closure Detection. IROS 2017.
 
 # Prerequisites  ################################################################
 
