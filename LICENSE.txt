@@ -1,0 +1,6 @@
+MILD is released for acdemic usages only. For a closed-source version of MILD for commercial purposes, please contact the authors.
+
+If you use MILD in an academic work, please cite the most relevant publication associated by visiting:
+https://github.com/lhanaf/MILD
+
+

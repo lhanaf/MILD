@@ -1,3 +1,12 @@
+/**
+* This file is part of MILD.
+*
+* Copyright (C) Lei Han(lhanaf@connect.ust.hk) and Lu Fang(fanglu@sz.tsinghua.edu.cn)
+* For more information see <https://github.com/lhanaf/MILD>
+*
+**/
+
+
 #include "loop_closure_detector.h"
 
 #include <iostream>
