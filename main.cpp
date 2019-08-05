@@ -51,6 +51,10 @@ void  LoadRGBFrame(string fileName, int index, Frame &t, string tag)
     t.rgb.release();
     t.depth.release();
     t.rgb = imread(fileName);
+    if(t.rgb.rows <= 0)
+    {
+        cout << "warning, wrong image path: " <<  fileName.c_str();
+    }
 }
 
 void extractFeatures(Frame &t,string tag,int maximum_feature_num)
@@ -119,6 +123,7 @@ void test_mild(string folder,
     while (fin.getline(line, sizeof(line), '\n'))
     {
         string input = line;
+        input = input.erase(input.find_last_not_of(" "));
         memset(line, '\0', sizeof(line));
         fileName.push_back(input);
     }
